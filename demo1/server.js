@@ -1,10 +1,13 @@
-var http = require("http");
+const http = require('http');
+const url = require('url');
 
 function startHTTPServer() {
   function handleRequest(req, res) {
-    res.writeHead(200, { "content-Type": "text/plain" });
-    res.write("hello");
-    res.end();
+    const pathname = url.parse(req.url).pathname;
+    console.log(`request for ${pathname} received`)
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello World!\n');
   }
 
   var server = http.createServer(handleRequest);
