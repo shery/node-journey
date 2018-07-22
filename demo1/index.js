@@ -1,3 +1,5 @@
-var server = require('./server');
+const server = require('./server');
+const router = require('./router')
 
-server.startHTTPServer();
+
+server.startHTTPServer(router.route);
