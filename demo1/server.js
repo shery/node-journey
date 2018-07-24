@@ -1,12 +1,12 @@
 const http = require('http');
 const url = require('url');
 
-function startHTTPServer(route) {
+function startHTTPServer(route, handle) {
   function handleRequest(req, res) {
     const pathname = url.parse(req.url).pathname;
     console.log(`request for ${pathname} received`)
 
-    route(pathname)
+    route(handle, pathname)
 
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
