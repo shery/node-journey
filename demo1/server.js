@@ -6,11 +6,7 @@ function startHTTPServer(route, handle) {
     const pathname = url.parse(req.url).pathname;
     console.log(`request for ${pathname} received`)
 
-    route(handle, pathname)
-
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello World!\n');
+    route(handle, pathname, res)
   }
 
   const server = http.createServer(handleRequest);
