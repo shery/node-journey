@@ -1,5 +1,5 @@
 import Component from '../lib/component'
-import store from '../store/store'
+import store from '../store/index.js'
 
 export default class Status extends Component {
   constructor() {
